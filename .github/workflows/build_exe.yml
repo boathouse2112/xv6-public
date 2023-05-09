@@ -19,4 +19,8 @@ jobs:
         version: 1.0
     - name: make
       run: make
-    - run: ls
+    - name: upload
+      uses: actions/upload-artifact@3
+      with:
+        name: xv6.img
+        path: ${{github.workspace}}/xv6.img
