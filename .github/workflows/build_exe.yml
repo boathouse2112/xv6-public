@@ -18,7 +18,7 @@ jobs:
         packages: git nasm build-essential qemu gdb
         version: 1.0
     - name: make
-      run: make
+      run: make fs.img xv6.img
     - run: ls
     - name: upload
       uses: actions/upload-artifact@v3
