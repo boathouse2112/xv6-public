@@ -1,4 +1,4 @@
-name: C/C++ CI
+name: Build Executable
 
 on:
   push:
@@ -13,11 +13,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: configure
-      run: ./configure
+    - uses: awalsh128/cache-apt-pkgs-action@latest
+      with:
+        packages: git nasm build-essential qemu gdb
+        version: 1.0
     - name: make
       run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
