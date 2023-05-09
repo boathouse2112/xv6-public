@@ -19,7 +19,7 @@ jobs:
         version: 1.0
     - name: make
       run: make
-    - run: ls | grep *.img
+    - run: ls
     - name: upload
       uses: actions/upload-artifact@v3
       with:
