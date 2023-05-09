@@ -20,7 +20,7 @@ jobs:
     - name: make
       run: make
     - name: upload
-      uses: actions/upload-artifact@3
+      uses: actions/upload-artifact@v3
       with:
         name: xv6.img
         path: ${{github.workspace}}/xv6.img
