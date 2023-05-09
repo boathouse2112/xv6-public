@@ -19,10 +19,10 @@ jobs:
         version: 1.0
     - name: make
       run: make
+    - run: ls | grep *.img
     - name: upload
       uses: actions/upload-artifact@v3
       with:
         name: img_files
         path: |
-          ${{github.workspace}}/xv6.img
-          ${{github.workspace}}/fs.img
+          ${{github.workspace}}/*.img
