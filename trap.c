@@ -14,6 +14,8 @@ extern uint vectors[];  // in vectors.S: array of 256 entry pointers
 struct spinlock tickslock;
 uint ticks;
 
+// Initialize trap vectors
+// Informs hardware of the location of code to run when a given interrupt occurs
 void
 tvinit(void)
 {

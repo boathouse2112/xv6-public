@@ -2,27 +2,26 @@ name: Build Executable
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ['master']
   pull_request:
-    branches: [ "master" ]
+    branches: ['master']
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - uses: awalsh128/cache-apt-pkgs-action@latest
-      with:
-        packages: git nasm build-essential qemu gdb
-        version: 1.0
-    - name: make
-      run: make fs.img xv6.img
-    - run: ls
-    - name: upload
-      uses: actions/upload-artifact@v3
-      with:
-        name: img_files
-        path: |
-          ${{github.workspace}}/*.img
+      - uses: actions/checkout@v3
+      - uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: git nasm build-essential qemu gdb
+          version: 1.0
+      - name: make
+        run: make fs.img xv6.img
+      - run: ls
+      - name: upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: img_files
+          path: |
+            ${{github.workspace}}/*.img
